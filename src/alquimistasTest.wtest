@@ -26,8 +26,21 @@ describe "Alquimistas test"{
 		assert.notThat(alquimista.tieneCriterio())
 	}
 	
+//  2
+	test "alquimista es buen explorador" {
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		
+		assert.that(alquimista.esBuenExplorador())
+	}
 	
-	
+	test "alquimista no es buen explorador por falta de items de recoleccion" {
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		
+		assert.notThat(alquimista.esBuenExplorador())
+	}
 	
 	
 	

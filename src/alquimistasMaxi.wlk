@@ -57,7 +57,7 @@ object alquimista{
 		}
 	
 	method cantidadItemsDeRecoleccion(){
-		return itemsDeRecoleccion.asSet().size()
+		return itemsDeRecoleccion.size()
 		}
 		
 //  3
