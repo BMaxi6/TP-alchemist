@@ -72,4 +72,96 @@ describe "Alquimistas test"{
 		
 		assert.equals(48, alquimista.capacidadOfensiva())
 	}
+	
+//  4
+
+	test "Alquimista es profesional" {
+		bomba.definirDanio(120)
+		bomba.agregarMaterial(material1)
+		pocion.definirPoderCurativo(60)
+		pocion.agregarMaterial(materialMistico)
+		debilitador.definirPotencia(10)
+		debilitador.agregarMaterial(materialNoMistico)
+		debilitador.agregarMaterial(materialNoMistico)
+		
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeCombate(bomba)
+		alquimista.agregarItemDeCombate(pocion)
+		alquimista.agregarItemDeCombate(debilitador)
+		
+		assert.that(alquimista.esProfesional())
+	}
+	
+	test "Alquimista no es profesional por poca calidad promedio" {
+		bomba.definirDanio(120)
+		bomba.agregarMaterial(material2)
+		pocion.definirPoderCurativo(60)
+		pocion.agregarMaterial(materialMistico)
+		debilitador.definirPotencia(10)
+		debilitador.agregarMaterial(materialNoMistico)
+		debilitador.agregarMaterial(materialNoMistico)
+		
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeCombate(bomba)
+		alquimista.agregarItemDeCombate(pocion)
+		alquimista.agregarItemDeCombate(debilitador)
+		
+		assert.notThat(alquimista.esProfesional())
+	}
+	
+	test "Alquimista no es profesional por falta de items efectivos" {
+		bomba.definirDanio(10)
+		bomba.agregarMaterial(material1)
+		pocion.definirPoderCurativo(60)
+		pocion.agregarMaterial(materialMistico)
+		debilitador.definirPotencia(10)
+		debilitador.agregarMaterial(materialNoMistico)
+		debilitador.agregarMaterial(materialNoMistico)
+		
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeCombate(bomba)
+		alquimista.agregarItemDeCombate(pocion)
+		alquimista.agregarItemDeCombate(debilitador)
+		
+		assert.notThat(alquimista.esProfesional())
+	}
+	
+	test "Alquimista no es profesional por no ser buen explorador" {
+		bomba.definirDanio(120)
+		bomba.agregarMaterial(material1)
+		pocion.definirPoderCurativo(60)
+		pocion.agregarMaterial(materialMistico)
+		debilitador.definirPotencia(10)
+		debilitador.agregarMaterial(materialNoMistico)
+		debilitador.agregarMaterial(materialNoMistico)
+		
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeRecoleccion(itemDeRecoleccion)
+		alquimista.agregarItemDeCombate(bomba)
+		alquimista.agregarItemDeCombate(pocion)
+		alquimista.agregarItemDeCombate(debilitador)
+		
+		assert.notThat(alquimista.esProfesional())
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

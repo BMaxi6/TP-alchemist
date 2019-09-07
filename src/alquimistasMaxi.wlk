@@ -8,7 +8,7 @@ object material1 {
 
 object material2 {
 	method calidad() {
-		return 40
+		return 0
 	}
 }
 
@@ -16,9 +16,15 @@ object materialMistico {
 	method esMistico() {
 		return true
 	}
+	method calidad(){
+		return 60
+	}
 }
 
 object materialNoMistico {
+	method calidad(){
+		return 60
+	}
 	method esMistico(){
 		return false
 	}
