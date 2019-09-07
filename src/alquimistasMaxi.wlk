@@ -114,7 +114,7 @@ object bomba {
 		}
 }
 
-object potenciador{
+object debilitador{
 	var potencia
 	var materiales = []
 	

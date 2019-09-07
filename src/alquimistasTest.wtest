@@ -1,3 +1,34 @@
 import alquimistasMaxi.*
 describe "Alquimistas test"{
+	
+	
+//  1
+	
+	test "alquimista tiene criterio" {
+		bomba.definirDanio(110)
+		debilitador.definirPotencia(0)
+		
+		alquimista.agregarItemDeCombate(bomba)
+		alquimista.agregarItemDeCombate(bomba)
+		alquimista.agregarItemDeCombate(debilitador)
+		
+		assert.that(alquimista.tieneCriterio())
+	}
+	
+	test "alquimista no tiene criterio por falta de materiales efectivos" {
+		bomba.definirDanio(110)
+		debilitador.definirPotencia(0)
+		
+		alquimista.agregarItemDeCombate(bomba)
+		alquimista.agregarItemDeCombate(debilitador)
+		alquimista.agregarItemDeCombate(debilitador)
+		
+		assert.notThat(alquimista.tieneCriterio())
+	}
+	
+	
+	
+	
+	
+	
 }
