@@ -42,6 +42,34 @@ describe "Alquimistas test"{
 		assert.notThat(alquimista.esBuenExplorador())
 	}
 	
+//  3
+
+	test "Capacidad ofensiva de alquimista con bombas" {
+		bomba.definirDanio(100)
+		alquimista.agregarItemDeCombate(bomba)
+		alquimista.agregarItemDeCombate(bomba)
+		alquimista.agregarItemDeCombate(bomba)
+		
+		assert.equals(150, alquimista.capacidadOfensiva())
+	}
 	
+	test "Capacidad ofensiva de alquimista con pociones" {
+		pocion.definirPoderCurativo(90)
+		pocion.agregarMaterial(materialMistico)
+		
+		alquimista.agregarItemDeCombate(pocion)
+		alquimista.agregarItemDeCombate(pocion)
+		
+		assert.equals(200, alquimista.capacidadOfensiva())
+	}
 	
+	test "Capacidad ofensiva de alquimista con debilitadores" {
+		debilitador.agregarMaterial(materialMistico)
+		debilitador.agregarMaterial(materialMistico)
+		
+		alquimista.agregarItemDeCombate(debilitador)
+		alquimista.agregarItemDeCombate(debilitador)
+		
+		assert.equals(48, alquimista.capacidadOfensiva())
+	}
 }
